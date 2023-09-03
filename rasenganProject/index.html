@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasengan</title>
+    <style>
+        .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+.btn{
+    padding: 10px;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body style="background-color:white">
+    
+<img src="../rasenganProject/images/SEN.jpg" alt="RASENGAN" class="center" id="Rasengan">
+
+<button id = "toggleBtn" class="center btn" >RASEN</button>
+
+<script>
+
+let btn = document.getElementById('toggleBtn');
+let bulb = document.getElementById('Rasengan');
+btn.addEventListener('click',toggleBulb);
+
+function toggleBulb(event)
+{
+    if(btn.textContent.includes('RASEN'))
+    {
+        bulb.src = "../rasenganProject/images/GAN.png";
+        document.body.style.backgroundColor='rgb(246, 246, 246)';
+        btn.textContent="GAN"
+    }
+   
+    else
+    {
+        
+        bulb.src = "../rasenganProject/images/SEN.jpg";
+        btn.textContent="RASEN";
+    }
+}
+
+</script>
+
+</body>
+</html>

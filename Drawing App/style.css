@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url(./background/vecteezy_colorful-doodle-abstract-hand-drawn-ilustration_10819423.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+  max-width: 1050px;
+}
+label {
+  color: white;
+}
+section {
+  background: #252525eb;
+  border-radius: 7px;
+}
+.tools-board {
+  width: 210px;
+  padding: 15px 22px 0;
+}
+.tools-board .row {
+  margin-bottom: 20px;
+}
+.row .options {
+  list-style: none;
+  margin: 10px 0 0 5px;
+}
+.row .options .option {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin-bottom: 10px;
+}
+/* Here :where() pseudo-class is used to apply the style to multiple selectors here in this case either span or label
+:is()It's typically used when you want to apply styles to elements that match multiple possible conditions.  
+:where() It's used for grouping selectors within complex rules for organizational purposes.  */
+
+.option:is(:hover, .active) img {
+  filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg)
+    brightness(100%) contrast(100%);
+  /* filter: This is the CSS property that allows you to apply various visual effects to an element. */
+}
+
+.option :where(span, label) {
+  color: #ffffff;
+  cursor: pointer;
+  padding-left: 10px;
+}
+.option:is(:hover, .active) :where(span, label) {
+  color: #4a98f7;
+}
+.option #fill-color {
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+}
+/* checked is a pseudo-class selector that matches elements when they are in a checked state. In practical terms, this is often used with checkboxes or radio buttons. and ~ is general sibling contextual selector*/
+
+#fill-color:checked ~ label {
+  color: #4a98f7;
+}
+.option #size-slider {
+  width: 100%;
+  height: 5px;
+  margin-top: 10px;
+}
+.colors .options {
+  display: flex;
+  justify-content: space-between;
+}
+.colors .option {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: 3px;
+  position: relative;
+}
+.colors .option:nth-child(1) {
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+}
+.colors .option:nth-child(2) {
+  background-color: #000;
+}
+.colors .option:nth-child(3) {
+  background-color: #e02020;
+}
+.colors .option:nth-child(4) {
+  background-color: #6dd400;
+}
+.colors .option:nth-child(5) {
+  background-color: #4a98f7;
+}
+.colors .option.selected::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  height: 12px;
+  width: 12px;
+  background: inherit;
+  border-radius: inherit;
+  border: 2px solid #fff;
+  /* transform: This is a CSS property that allows you to apply various transformations to an element, such as translation, rotation, scaling, and more 
+  
+  It's a common technique for centering elements within their parent container.
+
+  This technique is often used for elements that have position: absolute; or position: fixed; because it allows them to be positioned relative to their nearest positioned ancestor.
+
+  transform: translate(-50%, -50%); is used to move an element both horizontally and vertically on the web page. 
+
+  */
+  transform: translate(-50%, -50%);
+}
+.colors .option:first-child.selected::before {
+  border-color: #ccc;
+}
+.option #color-picker {
+  opacity: 0;
+  cursor: pointer;
+}
+.buttons button {
+  width: 100%;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 11px 0;
+  font-size: 0.9rem;
+  margin-bottom: 13px;
+  background: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.buttons .clear-canvas {
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  transition: all 0.3s ease;
+}
+.clear-canvas:hover {
+  color: #000000;
+  background: #ffffff;
+}
+.buttons .save-img {
+  background: #4a98f7;
+  border: 1px solid #4a98f7;
+}
+.drawing-board {
+  flex: 1; /*To take the rest of the space in the flex container in equal proportions*/
+  overflow: hidden;
+}
+.drawing-board canvas {
+  width: 100%;
+  height: 100%;
+}
